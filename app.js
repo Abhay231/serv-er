@@ -1,14 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
-
+const cors=require('cors');
+const bodyParser=require("body-parser");
 const app = express();
-// const ggi
-const port = process.env.port || 8080
-// Middleware
-app.use(express.json());
+const port = 5500
 
-// Connect to MongoDB
+app.use(express.json());
+app.use(cors());
+app.use(bodyParser.json());
+
 mongoose.set("strictQuery", false);
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDnpmB'))
@@ -18,7 +19,6 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 const studentRouter = require('./routes/students');
 app.use('/students', studentRouter);
 
-// Start the server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
