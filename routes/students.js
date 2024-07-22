@@ -51,7 +51,7 @@ router.post('/', async (req, res) => {
     const student = new Student({
         name: req.body.name,
         email: req.body.email,
-        phone: req.body.phone,
+        subject: req.body.subject,
         message: req.body.message,
     });
 

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const contactSchema = new mongoose.Schema({
+const studentSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -9,7 +9,7 @@ const contactSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    phone: {
+    subject: {
         type: String,
         required: true,
     },
@@ -21,4 +21,4 @@ const contactSchema = new mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('Contact', contactSchema);
+module.exports = mongoose.model('Student', studentSchema);
